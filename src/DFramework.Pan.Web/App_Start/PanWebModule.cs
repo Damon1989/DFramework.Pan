@@ -8,6 +8,11 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Abp.AutoMapper;
+using AutoMapper;
+using DFramework.MyStorage.SDK;
+using DFramework.Pan.Domain;
+using DFramework.Pan.SDK;
 
 namespace DFramework.Pan.Web
 {
@@ -15,7 +20,8 @@ namespace DFramework.Pan.Web
         typeof(AbpWebMvcModule),
         typeof(PanDataModule),
         typeof(PanApplicationModule),
-        typeof(PanWebApiModule))]
+        typeof(PanWebApiModule),
+        typeof(AbpAutoMapperModule))]
     public class PanWebModule : AbpModule
     {
         public override void PreInitialize()
@@ -38,11 +44,19 @@ namespace DFramework.Pan.Web
 
             //Configure navigation/menu
             Configuration.Navigation.Providers.Add<PanNavigationProvider>();
+
+            Configuration.Modules.AbpAutoMapper().Configurators.Add(config =>
+            {
+                config.CreateMap<FolderNode, FolderModel>();
+                config.CreateMap<FileNode, FileModel>();
+            });
         }
 
         public override void Initialize()
         {
             IocManager.RegisterAssemblyByConvention(Assembly.GetExecutingAssembly());
+
+            IocManager.Register<IStorageClient, StorageClient>();
 
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);

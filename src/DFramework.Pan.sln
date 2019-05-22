@@ -24,6 +24,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DFramework.Pan.SDK", "DFram
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DFramework.Pan.Infrastructure", "DFramework.Pan.Infrastructure\DFramework.Pan.Infrastructure.csproj", "{5C4E0FF6-A32D-4C19-8FB4-9C391F37D700}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DFramework.Pan.SDK.Test", "DFramework.Pan.SDK.Test\DFramework.Pan.SDK.Test.csproj", "{C78AD374-2CAD-49DD-8A1D-9C11A575B7D0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -58,6 +60,10 @@ Global
 		{5C4E0FF6-A32D-4C19-8FB4-9C391F37D700}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C4E0FF6-A32D-4C19-8FB4-9C391F37D700}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5C4E0FF6-A32D-4C19-8FB4-9C391F37D700}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C78AD374-2CAD-49DD-8A1D-9C11A575B7D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C78AD374-2CAD-49DD-8A1D-9C11A575B7D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C78AD374-2CAD-49DD-8A1D-9C11A575B7D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C78AD374-2CAD-49DD-8A1D-9C11A575B7D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

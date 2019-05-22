@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Abp.Json;
+using Abp.Web.Models;
 using Abp.Web.Mvc.Controllers;
 using AutoMapper;
 using DFramework.Pan.Infrastructure;
@@ -16,6 +17,7 @@ namespace DFramework.Pan.Web.Controllers
     /// <summary>
     /// Derive all Controllers from this class.
     /// </summary>
+    [DontWrapResult]
     public abstract class PanControllerBase : AbpController
     {
         protected PanControllerBase()
@@ -70,6 +72,7 @@ namespace DFramework.Pan.Web.Controllers
             var apiResult = ExceptionManager.Process<T>(() =>
             {
                 ValidateMethod(method, args);
+
                 return PrepareResult(AutoMapper.Mapper.Map<T>(method.DynamicInvoke(args)));
             });
             return Json(apiResult, isPost ? JsonRequestBehavior.DenyGet : JsonRequestBehavior.AllowGet);

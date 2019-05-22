@@ -11,10 +11,10 @@ namespace DFramework.Pan.QuotaAppServices
         protected readonly long defaultQuota = long.Parse(ConfigurationManager.AppSettings["DefaultQuota"]);
         protected readonly string defaultAppId = ConfigurationManager.AppSettings["AppId"];
         private string _appId;
-        protected readonly IRepository<Domain.Quota, string> _quotaRepository;
-        protected readonly IRepository<Domain.QuotaLog, string> _quotaLogRepository;
+        protected readonly IRepository<Quota, string> _quotaRepository;
+        protected readonly IRepository<QuotaLog, string> _quotaLogRepository;
 
-        public QuotaAppService(IRepository<Domain.Quota, string> quotaRepository,
+        public QuotaAppService(IRepository<Quota, string> quotaRepository,
             IRepository<QuotaLog, string> quotaLogRepository)
         {
             _appId = defaultAppId;

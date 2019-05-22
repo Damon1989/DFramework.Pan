@@ -4,6 +4,7 @@ using System.Linq;
 
 namespace DFramework.Pan.Domain
 {
+
     public class FolderNode : Node
     {
         public IEnumerable<FolderNode> SubFolders { get; set; }

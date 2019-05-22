@@ -25,7 +25,7 @@ namespace DFramework.Pan.Web.Controllers
         protected readonly IQuotaAppService _quotaAppService;
         protected readonly IZipAppService _zipAppService;
 
-        public NodeController(StorageClient storageClient,
+        public NodeController(IStorageClient storageClient,
                                             INodeAppService nodeAppService,
                                             IQuotaAppService quotaAppService,
                                             IZipAppService zipAppService)
@@ -548,9 +548,12 @@ namespace DFramework.Pan.Web.Controllers
             FileController._cacheManager.Remove(node.OwnerId + node.FullPath);
             //包括缩略图的缓存，有w和h后缀
             var folderNodes = _nodeAppService.GetNode<FolderNode>(ThumbOwnerId, $"/Thumb/{node.Id}")?.Files;
-            foreach (var folderNode in folderNodes)
+            if (folderNodes!=null)
             {
-                FileController._cacheManager.Remove(node.OwnerId + node.FullPath + "/" + folderNode.Name);
+                foreach (var folderNode in folderNodes)
+                {
+                    FileController._cacheManager.Remove(node.OwnerId + node.FullPath + "/" + folderNode.Name);
+                }
             }
 
             //删除原有缩略图

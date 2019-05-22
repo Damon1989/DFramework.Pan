@@ -18,6 +18,7 @@ namespace DFramework.Pan.Domain
 
         public Quota(string ownerId)
         {
+            Id = Guid.NewGuid().ToString("n");
             OwnerId = ownerId;
         }
 

@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{07336698-4AED-4651-BD5B-0D40B5710EDC}</ProjectGuid>
+    <ProjectGuid>{C78AD374-2CAD-49DD-8A1D-9C11A575B7D0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DFramework.Pan.SDK</RootNamespace>
-    <AssemblyName>DFramework.Pan.SDK</AssemblyName>
+    <RootNamespace>DFramework.Pan.SDK.Test</RootNamespace>
+    <AssemblyName>DFramework.Pan.SDK.Test</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -31,7 +31,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.Data.v17.2, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpo.v17.2, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\VS.QualityTools.UnitTestFramework.15.0.27323.2\lib\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -41,22 +53,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FileModel.cs" />
-    <Compile Include="FolderModel.cs" />
-    <Compile Include="NodeModel.cs" />
+    <Compile Include="NodeSDKTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QuotaModel.cs" />
-    <Compile Include="Services\IPanClient.cs" />
-    <Compile Include="Services\IQuotaClient.cs" />
-    <Compile Include="Services\PanClient.cs" />
-    <Compile Include="Services\QuotaClient.cs" />
-    <Compile Include="VirtualFolderModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DFramework.Pan.Infrastructure\DFramework.Pan.Infrastructure.csproj">
-      <Project>{5c4e0ff6-a32d-4c19-8fb4-9c391f37d700}</Project>
-      <Name>DFramework.Pan.Infrastructure</Name>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DFramework.Pan.SDK\DFramework.Pan.SDK.csproj">
+      <Project>{07336698-4AED-4651-BD5B-0D40B5710EDC}</Project>
+      <Name>DFramework.Pan.SDK</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TestFiles\1.jpg" />
+    <Content Include="TestFiles\damon.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -105,8 +105,11 @@
     <Reference Include="Castle.Windsor, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <HintPath>..\packages\Castle.Windsor.4.1.1\lib\net45\Castle.Windsor.dll</HintPath>
     </Reference>
-    <Reference Include="DFramework.MyStorage.SDK">
-      <HintPath>..\..\..\..\..\packages\DFramework.MyStorage.SDK.dll</HintPath>
+    <Reference Include="DevExpress.Data.v17.2, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpo.v17.2, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DFramework.MyStorage.SDK, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\packages\DFramework.MyStorage.SDK.dll</HintPath>
     </Reference>
     <Reference Include="dotnet-bundle, Version=2.8.391.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\BundlerMinifier.Core.2.8.391\lib\net452\dotnet-bundle.exe</HintPath>
@@ -532,6 +535,7 @@
     <Content Include="Abp\Framework\styles\abp.mixings.css.map" />
     <Content Include="Abp\Framework\styles\abp.less" />
     <Content Include="Abp\Framework\styles\abp.css.map" />
+    <Content Include="ContentTypes.json" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -588,6 +592,7 @@
     <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NodeController.cs" />
+    <Compile Include="Controllers\QuotaController.cs" />
     <Compile Include="Models\Layout\LanguageSelectionViewModel.cs" />
     <Compile Include="Controllers\LayoutController.cs" />
     <Compile Include="Controllers\PanControllerBase.cs" />
@@ -658,6 +663,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Views\File\" />
     <Folder Include="Views\Node\" />
+    <Folder Include="Views\Quota\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
