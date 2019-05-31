@@ -68,6 +68,11 @@ namespace DFramework.Pan.QuotaAppServices
             return quota;
         }
 
+        /// <summary>
+        /// 检查配额
+        /// </summary>
+        /// <param name="ownerId"></param>
+        /// <param name="sizeToIncrease"></param>
         public void CheckQuota(string ownerId, long sizeToIncrease)
         {
             var quota = GetQuota(ownerId);

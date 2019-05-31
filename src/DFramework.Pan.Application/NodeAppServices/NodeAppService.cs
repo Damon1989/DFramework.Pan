@@ -130,6 +130,16 @@ namespace DFramework.Pan.NodeAppServices
                 .OrderBy(c => c.CreationTime).ToList();
         }
 
+        /// <summary>
+        /// 创建文件节点
+        /// </summary>
+        /// <param name="ownerId"></param>
+        /// <param name="path"></param>
+        /// <param name="name"></param>
+        /// <param name="size"></param>
+        /// <param name="storageId"></param>
+        /// <param name="tags"></param>
+        /// <returns></returns>
         public FileNode CreateFileNode(string ownerId, string path, string name, long size, string storageId, string tags = null)
         {
             FolderNode parentFolderNode = null;
@@ -668,6 +678,11 @@ namespace DFramework.Pan.NodeAppServices
             path = path.Replace("//", "/");
         }
 
+        /// <summary>
+        /// 获取目录的路径和目录名
+        /// </summary>
+        /// <param name="fullPath"></param>
+        /// <returns></returns>
         private Tuple<string, string> SplitFullPath(string fullPath)
         {
             if (fullPath == "/")
@@ -680,7 +695,14 @@ namespace DFramework.Pan.NodeAppServices
             return Tuple.Create(path, name);
         }
 
-        private Domain.Node DoCreateFolderNode(string ownerId, string path, string name)
+        /// <summary>
+        ///  递归 循环 创建上层目录
+        /// </summary>
+        /// <param name="ownerId"></param>
+        /// <param name="path"></param>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        private Node DoCreateFolderNode(string ownerId, string path, string name)
         {
             var node = GetNode<FolderNode>(ownerId, path, name);
             //如果已经存在了,直接返回
@@ -696,7 +718,7 @@ namespace DFramework.Pan.NodeAppServices
             return node;
         }
 
-        private Domain.Node DoCreateFolderNodeWithError(string ownerId, string path, string name)
+        private Node DoCreateFolderNodeWithError(string ownerId, string path, string name)
         {
             var node = GetNode<FolderNode>(ownerId, path, name);
             //如果已经存在了,直接返回

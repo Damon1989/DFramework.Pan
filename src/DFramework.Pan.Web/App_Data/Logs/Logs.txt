@@ -1103,3 +1103,249 @@ DEBUG 2019-05-22 11:48:42,555 [1    ] Abp.Logging.LogHelper                    -
 DEBUG 2019-05-22 11:48:42,557 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DFramework.Pan.QuotaAppServices.IQuotaAppService' with service name 'app/quota'.
 DEBUG 2019-05-22 11:48:42,559 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DFramework.Pan.NodeAppServices.INodeAppService' with service name 'app/node'.
 DEBUG 2019-05-22 11:48:42,640 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 0 classes define auto mapping attributes
+DEBUG 2019-05-22 19:02:12,923 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-05-22 19:02:12,937 [1    ] Abp.Modules.AbpModuleManager             - Found 13 ABP modules in total.
+DEBUG 2019-05-22 19:02:12,942 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DFramework.Pan.Web.PanWebModule, DFramework.Pan.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 19:02:12,943 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 19:02:12,943 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 19:02:12,944 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 19:02:12,944 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 19:02:12,944 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DFramework.Pan.PanDataModule, DFramework.Pan.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 19:02:12,944 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 19:02:12,944 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 19:02:12,944 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DFramework.Pan.PanCoreModule, DFramework.Pan.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 19:02:12,944 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DFramework.Pan.PanApplicationModule, DFramework.Pan.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 19:02:12,945 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DFramework.Pan.PanWebApiModule, DFramework.Pan.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 19:02:12,945 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 19:02:12,945 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 19:02:12,948 [1    ] Abp.Modules.AbpModuleManager             - 13 modules loaded.
+DEBUG 2019-05-22 19:02:13,253 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: DFramework.Pan.EntityFramework.PanDbContext, DFramework.Pan.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 19:02:14,829 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2019-05-22 19:02:14,967 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2019-05-22 19:02:15,005 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2019-05-22 19:02:15,007 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Pan
+DEBUG 2019-05-22 19:02:15,105 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2019-05-22 19:02:15,127 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DFramework.Pan.ZipAppServices.IZipAppService' with service name 'app/zip'.
+DEBUG 2019-05-22 19:02:15,128 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DFramework.Pan.QuotaAppServices.IQuotaAppService' with service name 'app/quota'.
+DEBUG 2019-05-22 19:02:15,129 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DFramework.Pan.NodeAppServices.INodeAppService' with service name 'app/node'.
+DEBUG 2019-05-22 19:02:15,182 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 0 classes define auto mapping attributes
+DEBUG 2019-05-22 19:20:02,821 [77   ] Abp.Modules.AbpModuleManager             - Shutting down has been started
+DEBUG 2019-05-22 19:20:02,822 [77   ] Abp.BackgroundJobs.BackgroundJobManager  - Stop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2019-05-22 19:20:02,823 [77   ] Abp.BackgroundJobs.BackgroundJobManager  - WaitToStop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2019-05-22 19:20:02,823 [77   ] Abp.Modules.AbpModuleManager             - Shutting down completed.
+DEBUG 2019-05-22 20:10:47,570 [145  ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-05-22 20:10:47,590 [145  ] Abp.Modules.AbpModuleManager             - Found 13 ABP modules in total.
+DEBUG 2019-05-22 20:10:47,599 [145  ] Abp.Modules.AbpModuleManager             - Loaded module: DFramework.Pan.Web.PanWebModule, DFramework.Pan.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:10:47,601 [145  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:10:47,601 [145  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:10:47,601 [145  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:10:47,601 [145  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:10:47,602 [145  ] Abp.Modules.AbpModuleManager             - Loaded module: DFramework.Pan.PanDataModule, DFramework.Pan.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:10:47,602 [145  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:10:47,602 [145  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:10:47,602 [145  ] Abp.Modules.AbpModuleManager             - Loaded module: DFramework.Pan.PanCoreModule, DFramework.Pan.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:10:47,602 [145  ] Abp.Modules.AbpModuleManager             - Loaded module: DFramework.Pan.PanApplicationModule, DFramework.Pan.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:10:47,603 [145  ] Abp.Modules.AbpModuleManager             - Loaded module: DFramework.Pan.PanWebApiModule, DFramework.Pan.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:10:47,603 [145  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:10:47,603 [145  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:10:47,607 [145  ] Abp.Modules.AbpModuleManager             - 13 modules loaded.
+DEBUG 2019-05-22 20:10:48,041 [145  ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: DFramework.Pan.EntityFramework.PanDbContext, DFramework.Pan.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:10:49,310 [145  ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2019-05-22 20:10:49,358 [145  ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2019-05-22 20:10:49,400 [145  ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2019-05-22 20:10:49,403 [145  ] Abp.Localization.LocalizationManager     - Initialized localization source: Pan
+DEBUG 2019-05-22 20:10:49,540 [145  ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2019-05-22 20:10:49,573 [145  ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DFramework.Pan.ZipAppServices.IZipAppService' with service name 'app/zip'.
+DEBUG 2019-05-22 20:10:49,575 [145  ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DFramework.Pan.QuotaAppServices.IQuotaAppService' with service name 'app/quota'.
+DEBUG 2019-05-22 20:10:49,576 [145  ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DFramework.Pan.NodeAppServices.INodeAppService' with service name 'app/node'.
+DEBUG 2019-05-22 20:10:49,692 [145  ] Abp.AutoMapper.AbpAutoMapperModule       - Found 0 classes define auto mapping attributes
+DEBUG 2019-05-22 20:31:16,690 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-05-22 20:31:16,704 [1    ] Abp.Modules.AbpModuleManager             - Found 13 ABP modules in total.
+DEBUG 2019-05-22 20:31:16,709 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DFramework.Pan.Web.PanWebModule, DFramework.Pan.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:31:16,711 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:31:16,711 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:31:16,711 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:31:16,711 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:31:16,711 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DFramework.Pan.PanDataModule, DFramework.Pan.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:31:16,712 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:31:16,712 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:31:16,712 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DFramework.Pan.PanCoreModule, DFramework.Pan.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:31:16,712 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DFramework.Pan.PanApplicationModule, DFramework.Pan.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:31:16,712 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DFramework.Pan.PanWebApiModule, DFramework.Pan.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:31:16,712 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:31:16,713 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:31:16,715 [1    ] Abp.Modules.AbpModuleManager             - 13 modules loaded.
+DEBUG 2019-05-22 20:31:17,028 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: DFramework.Pan.EntityFramework.PanDbContext, DFramework.Pan.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:31:18,769 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2019-05-22 20:31:18,934 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2019-05-22 20:31:18,972 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2019-05-22 20:31:18,974 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Pan
+DEBUG 2019-05-22 20:31:19,127 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2019-05-22 20:31:19,157 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DFramework.Pan.ZipAppServices.IZipAppService' with service name 'app/zip'.
+DEBUG 2019-05-22 20:31:19,158 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DFramework.Pan.QuotaAppServices.IQuotaAppService' with service name 'app/quota'.
+DEBUG 2019-05-22 20:31:19,159 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DFramework.Pan.NodeAppServices.INodeAppService' with service name 'app/node'.
+DEBUG 2019-05-22 20:31:19,233 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 0 classes define auto mapping attributes
+DEBUG 2019-05-22 20:43:36,261 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-05-22 20:43:36,273 [1    ] Abp.Modules.AbpModuleManager             - Found 13 ABP modules in total.
+DEBUG 2019-05-22 20:43:36,277 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DFramework.Pan.Web.PanWebModule, DFramework.Pan.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:43:36,278 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:43:36,279 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:43:36,279 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:43:36,279 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:43:36,279 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DFramework.Pan.PanDataModule, DFramework.Pan.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:43:36,279 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:43:36,279 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:43:36,279 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DFramework.Pan.PanCoreModule, DFramework.Pan.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:43:36,279 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DFramework.Pan.PanApplicationModule, DFramework.Pan.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:43:36,279 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DFramework.Pan.PanWebApiModule, DFramework.Pan.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:43:36,280 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:43:36,280 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:43:36,282 [1    ] Abp.Modules.AbpModuleManager             - 13 modules loaded.
+DEBUG 2019-05-22 20:43:36,542 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: DFramework.Pan.EntityFramework.PanDbContext, DFramework.Pan.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:43:37,790 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2019-05-22 20:43:37,910 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2019-05-22 20:43:37,940 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2019-05-22 20:43:37,941 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Pan
+DEBUG 2019-05-22 20:43:38,038 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2019-05-22 20:43:38,063 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DFramework.Pan.ZipAppServices.IZipAppService' with service name 'app/zip'.
+DEBUG 2019-05-22 20:43:38,063 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DFramework.Pan.QuotaAppServices.IQuotaAppService' with service name 'app/quota'.
+DEBUG 2019-05-22 20:43:38,065 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DFramework.Pan.NodeAppServices.INodeAppService' with service name 'app/node'.
+DEBUG 2019-05-22 20:43:38,120 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 0 classes define auto mapping attributes
+DEBUG 2019-05-22 20:44:56,001 [14   ] Abp.Modules.AbpModuleManager             - Shutting down has been started
+DEBUG 2019-05-22 20:44:56,002 [14   ] Abp.BackgroundJobs.BackgroundJobManager  - Stop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2019-05-22 20:44:56,002 [14   ] Abp.BackgroundJobs.BackgroundJobManager  - WaitToStop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2019-05-22 20:44:56,002 [14   ] Abp.Modules.AbpModuleManager             - Shutting down completed.
+DEBUG 2019-05-22 20:45:50,296 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-05-22 20:45:50,309 [1    ] Abp.Modules.AbpModuleManager             - Found 13 ABP modules in total.
+DEBUG 2019-05-22 20:45:50,314 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DFramework.Pan.Web.PanWebModule, DFramework.Pan.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:45:50,315 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:45:50,315 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:45:50,315 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:45:50,315 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:45:50,315 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DFramework.Pan.PanDataModule, DFramework.Pan.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:45:50,316 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:45:50,316 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:45:50,316 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DFramework.Pan.PanCoreModule, DFramework.Pan.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:45:50,316 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DFramework.Pan.PanApplicationModule, DFramework.Pan.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:45:50,316 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DFramework.Pan.PanWebApiModule, DFramework.Pan.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:45:50,316 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:45:50,316 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:45:50,318 [1    ] Abp.Modules.AbpModuleManager             - 13 modules loaded.
+DEBUG 2019-05-22 20:45:50,539 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: DFramework.Pan.EntityFramework.PanDbContext, DFramework.Pan.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:45:51,363 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2019-05-22 20:45:51,394 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2019-05-22 20:45:51,421 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2019-05-22 20:45:51,422 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Pan
+DEBUG 2019-05-22 20:45:51,502 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2019-05-22 20:45:51,522 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DFramework.Pan.ZipAppServices.IZipAppService' with service name 'app/zip'.
+DEBUG 2019-05-22 20:45:51,523 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DFramework.Pan.QuotaAppServices.IQuotaAppService' with service name 'app/quota'.
+DEBUG 2019-05-22 20:45:51,524 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DFramework.Pan.NodeAppServices.INodeAppService' with service name 'app/node'.
+DEBUG 2019-05-22 20:45:51,558 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 0 classes define auto mapping attributes
+DEBUG 2019-05-22 20:50:00,245 [37   ] Abp.Modules.AbpModuleManager             - Shutting down has been started
+DEBUG 2019-05-22 20:50:00,246 [37   ] Abp.BackgroundJobs.BackgroundJobManager  - Stop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2019-05-22 20:50:00,247 [37   ] Abp.BackgroundJobs.BackgroundJobManager  - WaitToStop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2019-05-22 20:50:00,247 [37   ] Abp.Modules.AbpModuleManager             - Shutting down completed.
+DEBUG 2019-05-22 20:50:10,944 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-05-22 20:50:10,958 [1    ] Abp.Modules.AbpModuleManager             - Found 13 ABP modules in total.
+DEBUG 2019-05-22 20:50:10,964 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DFramework.Pan.Web.PanWebModule, DFramework.Pan.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:50:10,966 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:50:10,966 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:50:10,966 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:50:10,966 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:50:10,966 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DFramework.Pan.PanDataModule, DFramework.Pan.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:50:10,966 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:50:10,967 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:50:10,967 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DFramework.Pan.PanCoreModule, DFramework.Pan.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:50:10,967 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DFramework.Pan.PanApplicationModule, DFramework.Pan.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:50:10,967 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DFramework.Pan.PanWebApiModule, DFramework.Pan.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:50:10,967 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:50:10,967 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:50:10,970 [1    ] Abp.Modules.AbpModuleManager             - 13 modules loaded.
+DEBUG 2019-05-22 20:50:11,311 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: DFramework.Pan.EntityFramework.PanDbContext, DFramework.Pan.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:50:13,111 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2019-05-22 20:50:13,250 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2019-05-22 20:50:13,284 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2019-05-22 20:50:13,285 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Pan
+DEBUG 2019-05-22 20:50:13,415 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2019-05-22 20:50:13,438 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DFramework.Pan.ZipAppServices.IZipAppService' with service name 'app/zip'.
+DEBUG 2019-05-22 20:50:13,439 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DFramework.Pan.QuotaAppServices.IQuotaAppService' with service name 'app/quota'.
+DEBUG 2019-05-22 20:50:13,440 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DFramework.Pan.NodeAppServices.INodeAppService' with service name 'app/node'.
+DEBUG 2019-05-22 20:50:13,493 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 0 classes define auto mapping attributes
+DEBUG 2019-05-22 20:55:44,377 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-05-22 20:55:44,515 [1    ] Abp.Modules.AbpModuleManager             - Found 13 ABP modules in total.
+DEBUG 2019-05-22 20:55:44,522 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DFramework.Pan.Web.PanWebModule, DFramework.Pan.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:55:44,524 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:55:44,524 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:55:44,524 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:55:44,524 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:55:44,524 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DFramework.Pan.PanDataModule, DFramework.Pan.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:55:44,524 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:55:44,525 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:55:44,525 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DFramework.Pan.PanCoreModule, DFramework.Pan.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:55:44,525 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DFramework.Pan.PanApplicationModule, DFramework.Pan.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:55:44,525 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DFramework.Pan.PanWebApiModule, DFramework.Pan.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:55:44,525 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:55:44,525 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:55:44,527 [1    ] Abp.Modules.AbpModuleManager             - 13 modules loaded.
+DEBUG 2019-05-22 20:55:45,002 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: DFramework.Pan.EntityFramework.PanDbContext, DFramework.Pan.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:55:45,243 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2019-05-22 20:55:45,366 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2019-05-22 20:55:45,393 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2019-05-22 20:55:45,394 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Pan
+DEBUG 2019-05-22 20:55:45,554 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2019-05-22 20:55:45,582 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DFramework.Pan.ZipAppServices.IZipAppService' with service name 'app/zip'.
+DEBUG 2019-05-22 20:55:45,583 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DFramework.Pan.QuotaAppServices.IQuotaAppService' with service name 'app/quota'.
+DEBUG 2019-05-22 20:55:45,583 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DFramework.Pan.NodeAppServices.INodeAppService' with service name 'app/node'.
+DEBUG 2019-05-22 20:55:45,646 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 0 classes define auto mapping attributes
+DEBUG 2019-05-22 20:57:19,575 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-05-22 20:57:19,769 [1    ] Abp.Modules.AbpModuleManager             - Found 13 ABP modules in total.
+DEBUG 2019-05-22 20:57:19,775 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DFramework.Pan.Web.PanWebModule, DFramework.Pan.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:57:19,777 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:57:19,777 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:57:19,777 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:57:19,777 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:57:19,777 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DFramework.Pan.PanDataModule, DFramework.Pan.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:57:19,778 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:57:19,778 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:57:19,778 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DFramework.Pan.PanCoreModule, DFramework.Pan.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:57:19,778 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DFramework.Pan.PanApplicationModule, DFramework.Pan.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:57:19,778 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DFramework.Pan.PanWebApiModule, DFramework.Pan.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:57:19,778 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:57:19,778 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:57:19,781 [1    ] Abp.Modules.AbpModuleManager             - 13 modules loaded.
+DEBUG 2019-05-22 20:57:20,513 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: DFramework.Pan.EntityFramework.PanDbContext, DFramework.Pan.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 20:57:20,798 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2019-05-22 20:57:20,949 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2019-05-22 20:57:20,985 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2019-05-22 20:57:20,987 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Pan
+DEBUG 2019-05-22 20:57:21,282 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2019-05-22 20:57:21,350 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DFramework.Pan.ZipAppServices.IZipAppService' with service name 'app/zip'.
+DEBUG 2019-05-22 20:57:21,351 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DFramework.Pan.QuotaAppServices.IQuotaAppService' with service name 'app/quota'.
+DEBUG 2019-05-22 20:57:21,352 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DFramework.Pan.NodeAppServices.INodeAppService' with service name 'app/node'.
+DEBUG 2019-05-22 20:57:21,463 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 0 classes define auto mapping attributes
+DEBUG 2019-05-22 21:01:14,896 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2019-05-22 21:01:15,013 [1    ] Abp.Modules.AbpModuleManager             - Found 13 ABP modules in total.
+DEBUG 2019-05-22 21:01:15,017 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DFramework.Pan.Web.PanWebModule, DFramework.Pan.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 21:01:15,019 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 21:01:15,019 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 21:01:15,019 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 21:01:15,019 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 21:01:15,019 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DFramework.Pan.PanDataModule, DFramework.Pan.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 21:01:15,020 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 21:01:15,020 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 21:01:15,020 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DFramework.Pan.PanCoreModule, DFramework.Pan.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 21:01:15,020 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DFramework.Pan.PanApplicationModule, DFramework.Pan.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 21:01:15,020 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: DFramework.Pan.PanWebApiModule, DFramework.Pan.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 21:01:15,020 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 21:01:15,020 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=4.3.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 21:01:15,023 [1    ] Abp.Modules.AbpModuleManager             - 13 modules loaded.
+DEBUG 2019-05-22 21:01:15,509 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: DFramework.Pan.EntityFramework.PanDbContext, DFramework.Pan.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2019-05-22 21:01:15,734 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2019-05-22 21:01:15,856 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2019-05-22 21:01:15,885 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2019-05-22 21:01:15,887 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Pan
+DEBUG 2019-05-22 21:01:16,048 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2019-05-22 21:01:16,076 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DFramework.Pan.ZipAppServices.IZipAppService' with service name 'app/zip'.
+DEBUG 2019-05-22 21:01:16,077 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DFramework.Pan.QuotaAppServices.IQuotaAppService' with service name 'app/quota'.
+DEBUG 2019-05-22 21:01:16,078 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'DFramework.Pan.NodeAppServices.INodeAppService' with service name 'app/node'.
+DEBUG 2019-05-22 21:01:16,137 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 0 classes define auto mapping attributes

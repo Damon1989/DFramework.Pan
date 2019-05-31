@@ -27,6 +27,16 @@ namespace DFramework.Pan.NodeAppServices
                                                         string newName = null)
                                                         where T : Node;
 
+        /// <summary>
+        /// 创建文件节点
+        /// </summary>
+        /// <param name="ownerId"></param>
+        /// <param name="path"></param>
+        /// <param name="name"></param>
+        /// <param name="size"></param>
+        /// <param name="storageId"></param>
+        /// <param name="tags"></param>
+        /// <returns></returns>
         FileNode CreateFileNode(string ownerId,
                                                     string path,
                                                     string name,
@@ -38,6 +48,13 @@ namespace DFramework.Pan.NodeAppServices
 
         FolderNode CreateFolderNode(string ownerId, string fullPath);
 
+        /// <summary>
+        /// 创建目录
+        /// </summary>
+        /// <param name="ownerId"></param>
+        /// <param name="path"></param>
+        /// <param name="name"></param>
+        /// <returns></returns>
         FolderNode CreateFolderNode(string ownerId, string path, string name);
 
         FolderNode CreateFolderNodeWithError(string ownerId, string path, string name);
@@ -99,7 +116,7 @@ namespace DFramework.Pan.NodeAppServices
 
         Domain.Node GetNode(string nodeId, string ownerId);
 
-        T GetNode<T>(string ownerId, string path) where T : Domain.Node;
+        T GetNode<T>(string ownerId, string path) where T : Node;
 
         T GetNode<T>(string ownerId
             , string path

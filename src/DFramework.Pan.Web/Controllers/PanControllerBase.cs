@@ -8,6 +8,7 @@ using Abp.Json;
 using Abp.Web.Models;
 using Abp.Web.Mvc.Controllers;
 using AutoMapper;
+using DFramework.Pan.Domain;
 using DFramework.Pan.Infrastructure;
 using DFramework.Pan.SDK;
 using ErrorCode = DFramework.Pan.Infrastructure.ErrorCode;
@@ -73,7 +74,7 @@ namespace DFramework.Pan.Web.Controllers
             {
                 ValidateMethod(method, args);
 
-                return PrepareResult(AutoMapper.Mapper.Map<T>(method.DynamicInvoke(args)));
+                return PrepareResult(Mapper.Map<T>(method.DynamicInvoke(args)));
             });
             return Json(apiResult, isPost ? JsonRequestBehavior.DenyGet : JsonRequestBehavior.AllowGet);
         }
@@ -83,7 +84,7 @@ namespace DFramework.Pan.Web.Controllers
             var apiResult = await ExceptionManager.Process<T>(async () =>
             {
                 ValidateMethod(method, args);
-                Domain.FileNode result = await (method.DynamicInvoke(args) as Task<Domain.FileNode>);
+                var result = await (method.DynamicInvoke(args) as Task<FileNode>);
                 return PrepareResult(Mapper.Map<T>(result));
             });
             return Json(apiResult, isPost ? JsonRequestBehavior.DenyGet : JsonRequestBehavior.AllowGet);
@@ -132,6 +133,11 @@ namespace DFramework.Pan.Web.Controllers
             return model;
         }
 
+        /// <summary>
+        /// 校验参数
+        /// </summary>
+        /// <param name="method"></param>
+        /// <param name="args"></param>
         private static void ValidateMethod(Delegate method, string[] args)
         {
             //全局验证参数

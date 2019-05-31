@@ -15,20 +15,22 @@ using DFramework.Pan.NodeAppServices;
 using DFramework.Pan.QuotaAppServices;
 using DFramework.Pan.SDK;
 using DFramework.Pan.ZipAppServices;
+using Newtonsoft.Json;
+using ErrorCode = DFramework.Pan.Infrastructure.ErrorCode;
 
 namespace DFramework.Pan.Web.Controllers
 {
     public class NodeController : PanControllerBase
     {
-        protected IStorageClient _storageClient;
         protected readonly INodeAppService _nodeAppService;
         protected readonly IQuotaAppService _quotaAppService;
         protected readonly IZipAppService _zipAppService;
+        protected IStorageClient _storageClient;
 
         public NodeController(IStorageClient storageClient,
-                                            INodeAppService nodeAppService,
-                                            IQuotaAppService quotaAppService,
-                                            IZipAppService zipAppService)
+            INodeAppService nodeAppService,
+            IQuotaAppService quotaAppService,
+            IZipAppService zipAppService)
         {
             _storageClient = storageClient;
             _nodeAppService = nodeAppService;
@@ -36,6 +38,15 @@ namespace DFramework.Pan.Web.Controllers
             _zipAppService = zipAppService;
         }
 
+        /// <summary>
+        /// 上传文件
+        /// </summary>
+        /// <param name="ownerId"></param>
+        /// <param name="path"></param>
+        /// <param name="name"></param>
+        /// <param name="md5"></param>
+        /// <param name="tags"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<JsonResult> Upload(string ownerId, string path, string name, string md5, string tags)
         {
@@ -64,59 +75,72 @@ namespace DFramework.Pan.Web.Controllers
         [HttpPost]
         private async Task<FileNode> DoUploadIsolate(string ownerId, string name, string md5, string tags = null)
         {
-            return await DoUpload(ownerId, null, name, md5, bool.FalseString, tags/*孤立文件无所谓覆盖问题，每次都是新建*/);
+            return await DoUpload(ownerId, null, name, md5, bool.FalseString, tags /*孤立文件无所谓覆盖问题，每次都是新建*/);
         }
 
         public JsonResult GetFIle(string ownerId, string path, string name)
         {
             return CallService<FileModel>(false,
-                new Func<string, string, string, Domain.Node>(_nodeAppService.GetNode<FileNode>), ownerId, path, name);
+                new Func<string, string, string, Node>(_nodeAppService.GetNode<FileNode>), ownerId, path, name);
         }
 
         public JsonResult GetFileByFullPath(string ownerId, string fullPath)
         {
             return CallService<FileModel>(false,
-                new Func<string, string, Domain.Node>(_nodeAppService.GetNode<FileNode>), ownerId, fullPath);
+                new Func<string, string, Node>(_nodeAppService.GetNode<FileNode>), ownerId, fullPath);
         }
 
         public JsonResult GetFileById(string fileId)
         {
-            return CallService<FileModel>(false, new Func<string, Domain.Node>(_nodeAppService.GetNode<FileNode>),
+            return CallService<FileModel>(false, new Func<string, Node>(_nodeAppService.GetNode<FileNode>),
                 fileId);
         }
 
         public JsonResult GetFilesByIds(string fileIdListStr)
         {
             return CallService<IEnumerable<FileModel>>(false,
-                new Func<string, IEnumerable<Domain.Node>>(_nodeAppService.GetNodeList<FileNode>), fileIdListStr);
+                new Func<string, IEnumerable<Node>>(_nodeAppService.GetNodeList<FileNode>), fileIdListStr);
         }
 
+        /// <summary>
+        /// 获取目录
+        /// </summary>
+        /// <param name="ownerId"></param>
+        /// <param name="path"></param>
+        /// <returns></returns>
         public JsonResult GetFolder(string ownerId, string path)
         {
             return CallService<FolderModel>(false,
-                new Func<string, string, Domain.Node>(_nodeAppService.GetNode<FolderNode>), ownerId, path);
+                new Func<string, string, Node>(_nodeAppService.GetNode<FolderNode>), ownerId, path);
         }
 
         public JsonResult GetFolderById(string nodeId)
         {
             return CallService<FolderModel>(false,
-                new Func<string, string, Domain.Node>(_nodeAppService.GetNodeById<FolderNode>), nodeId,
+                new Func<string, string, Node>(_nodeAppService.GetNodeById<FolderNode>), nodeId,
                 bool.FalseString);
         }
 
         public JsonResult GetFolderWithNextLayer(string ownerId, string path)
         {
             return CallService<FolderModel>(false,
-                new Func<string, string, Domain.Node>(_nodeAppService.GetNodeWithNextLayer<FolderNode>), ownerId, path);
+                new Func<string, string, Node>(_nodeAppService.GetNodeWithNextLayer<FolderNode>), ownerId, path);
         }
 
         public JsonResult GetFolderByIdWithNextLayer(string nodeId)
         {
             return CallService<FolderModel>(false,
-                new Func<string, string, Domain.Node>(_nodeAppService.GetNodeById<FolderNode>), nodeId,
+                new Func<string, string, Node>(_nodeAppService.GetNodeById<FolderNode>), nodeId,
                 bool.TrueString);
         }
 
+        /// <summary>
+        /// 创建目录
+        /// </summary>
+        /// <param name="ownerId"></param>
+        /// <param name="path"></param>
+        /// <param name="name"></param>
+        /// <returns></returns>
         public JsonResult CreateFolder(string ownerId, string path, string name)
         {
             return CallService<FolderModel>(true,
@@ -133,28 +157,28 @@ namespace DFramework.Pan.Web.Controllers
         public JsonResult RenameFile(string ownerId, string path, string oldName, string newName)
         {
             return CallService<FileModel>(true,
-                new Func<string, string, string, string, Domain.Node>(_nodeAppService.RenameNode<FileNode>), ownerId,
+                new Func<string, string, string, string, Node>(_nodeAppService.RenameNode<FileNode>), ownerId,
                 path, oldName, newName);
         }
 
         public JsonResult RenameFolder(string ownerId, string path, string oldName, string newName)
         {
             return CallService<FolderModel>(true,
-                new Func<string, string, string, string, Domain.Node>(_nodeAppService.RenameNode<FolderNode>), ownerId,
+                new Func<string, string, string, string, Node>(_nodeAppService.RenameNode<FolderNode>), ownerId,
                 path, oldName, newName);
         }
 
         public JsonResult MoveFile(string ownerId, string path, string name, string newPath)
         {
             return CallService<FileModel>(true,
-                new Func<string, string, string, string, Domain.Node>(_nodeAppService.MoveNode<FileNode>), ownerId,
+                new Func<string, string, string, string, Node>(_nodeAppService.MoveNode<FileNode>), ownerId,
                 path, name, newPath);
         }
 
         public JsonResult MoveFolder(string ownerId, string path, string name, string newPath)
         {
             return CallService<FolderModel>(true,
-                new Func<string, string, string, string, Domain.Node>(_nodeAppService.MoveNode<FolderNode>), ownerId,
+                new Func<string, string, string, string, Node>(_nodeAppService.MoveNode<FolderNode>), ownerId,
                 path, name, newPath);
         }
 
@@ -167,126 +191,124 @@ namespace DFramework.Pan.Web.Controllers
         public JsonResult MoveNodesToTargetOwner(string ownerId, string path, string nameListStr, string targetOwnerId,
             string newPath)
         {
-            return CallService(true, new Action<string, string, string, string, string>((_ownerId, _path, _nameListStr, _targetOwnerId, _newPath) =>
-            {
-                string[] nameList = _nameListStr?.Split('/');
-                if (nameList?.Length > 0)
+            return CallService(true, new Action<string, string, string, string, string>(
+                (_ownerId, _path, _nameListStr, _targetOwnerId, _newPath) =>
                 {
-                    foreach (var name in nameList)
-                    {
-                        var node = _nodeAppService.GetNode(_ownerId, _path, name);
-                        if (node == null)
+                    var nameList = _nameListStr?.Split('/');
+                    if (nameList?.Length > 0)
+                        foreach (var name in nameList)
                         {
-                            throw new Exception("文件或文件夹不存在");
+                            var node = _nodeAppService.GetNode(_ownerId, _path, name);
+                            if (node == null) throw new Exception("文件或文件夹不存在");
+                            if (node is FileNode)
+                            {
+                                if (_ownerId != _targetOwnerId)
+                                {
+                                    var size = (node as FileNode).Size;
+                                    _quotaAppService.CheckQuota(_targetOwnerId, size);
+                                }
+
+                                var result =
+                                    _nodeAppService.MoveNode<FileNode>(_ownerId, _path, name, _targetOwnerId, _newPath)
+                                        as FileNode;
+
+                                if (_ownerId != _targetOwnerId)
+                                {
+                                    _quotaAppService.Decrease(_ownerId, result.Size, result.Id);
+                                    _quotaAppService.Increase(_targetOwnerId, result.Size, result.Id);
+                                }
+                            }
+                            else if (node is FolderNode)
+                            {
+                                long size = 0;
+                                if (_ownerId != _targetOwnerId)
+                                {
+                                    size = _nodeAppService.GetFolderSize(_ownerId, path, name);
+                                    _quotaAppService.CheckQuota(_targetOwnerId, size);
+                                }
+
+                                var result = _nodeAppService.MoveNode<FolderNode>(_ownerId, _path, name, _targetOwnerId,
+                                    _newPath);
+
+                                if (_ownerId != _targetOwnerId)
+                                {
+                                    _quotaAppService.Decrease(_ownerId, size, result.Id);
+                                    _quotaAppService.Increase(_targetOwnerId, size, result.Id);
+                                }
+                            }
                         }
-                        if (node is FileNode)
-                        {
-                            if (_ownerId != _targetOwnerId)
-                            {
-                                var size = (node as FileNode).Size;
-                                _quotaAppService.CheckQuota(_targetOwnerId, size);
-                            }
-
-                            var result = _nodeAppService.MoveNode<FileNode>(_ownerId, _path, name, _targetOwnerId, _newPath) as FileNode;
-
-                            if (_ownerId != _targetOwnerId)
-                            {
-                                _quotaAppService.Decrease(_ownerId, result.Size, result.Id);
-                                _quotaAppService.Increase(_targetOwnerId, result.Size, result.Id);
-                            }
-                        }
-                        else if (node is FolderNode)
-                        {
-                            long size = 0;
-                            if (_ownerId != _targetOwnerId)
-                            {
-                                size = _nodeAppService.GetFolderSize(_ownerId, path, name);
-                                _quotaAppService.CheckQuota(_targetOwnerId, size);
-                            }
-
-                            var result = _nodeAppService.MoveNode<FolderNode>(_ownerId, _path, name, _targetOwnerId, _newPath);
-
-                            if (_ownerId != _targetOwnerId)
-                            {
-                                _quotaAppService.Decrease(_ownerId, size, result.Id);
-                                _quotaAppService.Increase(_targetOwnerId, size, result.Id);
-                            }
-                        }
-                    }
-                }
-            }), ownerId, path, nameListStr, targetOwnerId, newPath);
+                }), ownerId, path, nameListStr, targetOwnerId, newPath);
         }
 
         public JsonResult CopyNodes(string ownerId, string path, string nameListStr, string newPath)
         {
-            return CallService(true, new Action<string, string, string, string>((_ownerId, _path, _nameListStr, _newPath) =>
-            {
-                string[] nameList = _nameListStr?.Split('/');
-                if (nameList?.Length > 0)
+            return CallService(true, new Action<string, string, string, string>(
+                (_ownerId, _path, _nameListStr, _newPath) =>
                 {
-                    foreach (var name in nameList)
-                    {
-                        var node = _nodeAppService.GetNode(_ownerId, _path, name);
-                        if (node == null)
+                    var nameList = _nameListStr?.Split('/');
+                    if (nameList?.Length > 0)
+                        foreach (var name in nameList)
                         {
-                            throw new Exception("文件或文件夹不存在");
+                            var node = _nodeAppService.GetNode(_ownerId, _path, name);
+                            if (node == null) throw new Exception("文件或文件夹不存在");
+                            if (node is FileNode)
+                            {
+                                var size = (node as FileNode).Size;
+                                _quotaAppService.CheckQuota(_ownerId, size);
+                                var result =
+                                    _nodeAppService.CopyNode<FileNode>(_ownerId, _path, name, _newPath, null) as
+                                        FileNode;
+                                _quotaAppService.Increase(_ownerId, result.Size, result.Id);
+                            }
+                            else if (node is FolderNode)
+                            {
+                                var size = _nodeAppService.GetFolderSize(_ownerId, path, name);
+                                _quotaAppService.CheckQuota(_ownerId, size);
+                                var result =
+                                    _nodeAppService.CopyNode<FolderNode>(_ownerId, _path, name, _newPath, null);
+                                _quotaAppService.Increase(_ownerId, size, result.Id);
+                            }
                         }
-                        if (node is FileNode)
-                        {
-                            var size = (node as FileNode).Size;
-                            _quotaAppService.CheckQuota(_ownerId, size);
-                            var result = _nodeAppService.CopyNode<FileNode>(_ownerId, _path, name, _newPath, null) as FileNode;
-                            _quotaAppService.Increase(_ownerId, result.Size, result.Id);
-                        }
-                        else if (node is FolderNode)
-                        {
-                            var size = _nodeAppService.GetFolderSize(_ownerId, path, name);
-                            _quotaAppService.CheckQuota(_ownerId, size);
-                            var result = _nodeAppService.CopyNode<FolderNode>(_ownerId, _path, name, _newPath, null);
-                            _quotaAppService.Increase(_ownerId, size, result.Id);
-                        }
-                    }
-                }
-            }), ownerId, path, nameListStr, newPath);
+                }), ownerId, path, nameListStr, newPath);
         }
 
-        public JsonResult CopyNodesToTargetOwner(string ownerId, string path, string nameListStr, string targetOwnerId, string newPath)
+        public JsonResult CopyNodesToTargetOwner(string ownerId, string path, string nameListStr, string targetOwnerId,
+            string newPath)
         {
-            return CallService(true, new Action<string, string, string, string, string>((_ownerId, _path, _nameListStr, _targetOwnerId, _newPath) =>
-            {
-                string[] nameList = _nameListStr?.Split('/');
-                if (nameList?.Length > 0)
+            return CallService(true, new Action<string, string, string, string, string>(
+                (_ownerId, _path, _nameListStr, _targetOwnerId, _newPath) =>
                 {
-                    foreach (var name in nameList)
-                    {
-                        var node = _nodeAppService.GetNode(_ownerId, _path, name);
-                        if (node == null)
+                    var nameList = _nameListStr?.Split('/');
+                    if (nameList?.Length > 0)
+                        foreach (var name in nameList)
                         {
-                            throw new Exception("文件或文件夹不存在");
+                            var node = _nodeAppService.GetNode(_ownerId, _path, name);
+                            if (node == null) throw new Exception("文件或文件夹不存在");
+                            if (node is FileNode)
+                            {
+                                var size = (node as FileNode).Size;
+                                _quotaAppService.CheckQuota(_targetOwnerId, size);
+                                var result =
+                                    _nodeAppService.CopyNode<FileNode>(_ownerId, _path, name, _targetOwnerId, _newPath,
+                                        null) as FileNode;
+                                _quotaAppService.Increase(_targetOwnerId, result.Size, result.Id);
+                            }
+                            else if (node is FolderNode)
+                            {
+                                var size = _nodeAppService.GetFolderSize(_ownerId, path, name);
+                                _quotaAppService.CheckQuota(_targetOwnerId, size);
+                                var result = _nodeAppService.CopyNode<FolderNode>(_ownerId, _path, name, _targetOwnerId,
+                                    _newPath, null);
+                                _quotaAppService
+                                    .Increase(_targetOwnerId, size, result.Id);
+                            }
                         }
-                        if (node is FileNode)
-                        {
-                            var size = (node as FileNode).Size;
-                            _quotaAppService.CheckQuota(_targetOwnerId, size);
-                            var result = _nodeAppService.CopyNode<FileNode>(_ownerId, _path, name, _targetOwnerId, _newPath, null) as FileNode;
-                            _quotaAppService.Increase(_targetOwnerId, result.Size, result.Id);
-                        }
-                        else if (node is FolderNode)
-                        {
-                            var size = _nodeAppService.GetFolderSize(_ownerId, path, name);
-                            _quotaAppService.CheckQuota(_targetOwnerId, size);
-                            var result = _nodeAppService.CopyNode<FolderNode>(_ownerId, _path, name, _targetOwnerId, _newPath, null);
-                            _quotaAppService
-.Increase(_targetOwnerId, size, result.Id);
-                        }
-                    }
-                }
-            }), ownerId, path, nameListStr, targetOwnerId, newPath);
+                }), ownerId, path, nameListStr, targetOwnerId, newPath);
         }
 
         public JsonResult CopyFile(string ownerId, string path, string name, string newPath, string newName = null)
         {
-            return CallService<FileModel>(true, new Func<string, string, string, string, Domain.Node>((p1, p2, p3, p4) =>
+            return CallService<FileModel>(true, new Func<string, string, string, string, Node>((p1, p2, p3, p4) =>
             {
                 var size = _nodeAppService.GetNode<FileNode>(ownerId, path, name).Size;
                 _quotaAppService.CheckQuota(ownerId, size);
@@ -300,7 +322,7 @@ namespace DFramework.Pan.Web.Controllers
 
         public JsonResult CopyFolder(string ownerId, string path, string name, string newPath, string newName = null)
         {
-            return CallService<FolderModel>(true, new Func<string, string, string, string, Domain.Node>((p1, p2, p3, p4) =>
+            return CallService<FolderModel>(true, new Func<string, string, string, string, Node>((p1, p2, p3, p4) =>
             {
                 var size = _nodeAppService.GetFolderSize(ownerId, path, name);
                 _quotaAppService.CheckQuota(ownerId, size);
@@ -314,10 +336,10 @@ namespace DFramework.Pan.Web.Controllers
 
         public JsonResult CopyFileById(string fileId, string targetOwnerId, string newPath, string newName = null)
         {
-            return CallService<FileModel>(true, new Func<string, string, string, Domain.Node>((p1, p2, p3) =>
+            return CallService<FileModel>(true, new Func<string, string, string, Node>((p1, p2, p3) =>
             {
                 var size = _nodeAppService.GetNode<FileNode>(fileId
-).Size;
+                ).Size;
                 _quotaAppService.CheckQuota(targetOwnerId, size);
 
                 var result = _nodeAppService.CopyNode<FileNode>(p1, p2, p3, newName) as FileNode;
@@ -329,7 +351,7 @@ namespace DFramework.Pan.Web.Controllers
 
         public JsonResult CopyFolderById(string folderId, string targetOwnerId, string newPath, string newName = null)
         {
-            return CallService<FolderModel>(true, new Func<string, string, string, Domain.Node>((p1, p2, p3) =>
+            return CallService<FolderModel>(true, new Func<string, string, string, Node>((p1, p2, p3) =>
             {
                 var size = _nodeAppService.GetFolderSize(folderId);
                 _quotaAppService.CheckQuota(targetOwnerId, size);
@@ -343,7 +365,7 @@ namespace DFramework.Pan.Web.Controllers
 
         public JsonResult DeleteFolder(string ownerId, string path, string name)
         {
-            return CallService<FolderModel>(true, new Func<string, string, string, Domain.Node>((p1, p2, p3) =>
+            return CallService<FolderModel>(true, new Func<string, string, string, Node>((p1, p2, p3) =>
             {
                 DoDeleteFolder(ownerId, path, name);
                 return _nodeAppService.DeleteNode<FolderNode>(p1, p2, p3) as FolderNode;
@@ -352,14 +374,10 @@ namespace DFramework.Pan.Web.Controllers
 
         public JsonResult EmptyFolder(string folderId)
         {
-            return CallService<FolderModel>(true, new Func<String, Domain.Node>((p1) =>
+            return CallService<FolderModel>(true, new Func<string, Node>(p1 =>
             {
-                var folder = _nodeAppService.GetNode<FolderNode>(folderId) as FolderNode;
-                if (folder == null)
-                {
-                    //throw new Exception("未找到要删除的目录");
-                    return folder;
-                }
+                var folder = _nodeAppService.GetNode<FolderNode>(folderId);
+                if (folder == null) return folder;
                 DoDeleteFolder(folder.OwnerId, folder.Path, folder.Name);
                 return _nodeAppService.EmptyFolder(folder.Id);
             }), folderId);
@@ -369,16 +387,12 @@ namespace DFramework.Pan.Web.Controllers
         {
             return CallService(true, new Action<string, string, string>((p1, p2, p3) =>
             {
-                string[] nameList = p3?.Split('/');
+                var nameList = p3?.Split('/');
                 if (nameList?.Length > 0)
-                {
                     foreach (var name in nameList)
                     {
                         var node = _nodeAppService.GetNode(p1, p2, name);
-                        if (node == null)
-                        {
-                            throw new Exception("文件或文件夹不存在");
-                        }
+                        if (node == null) throw new Exception("文件或文件夹不存在");
                         if (node is FileNode)
                         {
                             var result = _nodeAppService.DeleteNode<FileNode>(p1, p2, name) as FileNode;
@@ -392,13 +406,12 @@ namespace DFramework.Pan.Web.Controllers
                             _nodeAppService.DeleteNode<FolderNode>(p1, p2, name);
                         }
                     }
-                }
             }), ownerId, path, nameListStr);
         }
 
         public JsonResult DeleteFile(string ownerId, string path, string name)
         {
-            return CallService<FileModel>(true, new Func<string, string, string, Domain.Node>((p1, p2, p3) =>
+            return CallService<FileModel>(true, new Func<string, string, string, Node>((p1, p2, p3) =>
             {
                 var node = _nodeAppService.DeleteNode<FileNode>(p1, p2, p3) as FileNode;
                 _storageClient.Remove(node.StorageFileId);
@@ -439,48 +452,55 @@ namespace DFramework.Pan.Web.Controllers
 
         public JsonResult GetFilesCount(string ownerId, string path, bool recursive)
         {
-            return CallService<int>(false, new Func<string, string, string, int>(_nodeAppService.GetFilesCount), ownerId, path, recursive.ToString());
+            return CallService<int>(false, new Func<string, string, string, int>(_nodeAppService.GetFilesCount),
+                ownerId, path, recursive.ToString());
         }
 
         internal FileNode CreateThumb(string ownerId, string fullPath, int width, int height, string contentType = "")
         {
-            var file = _nodeAppService.GetNode<FileNode>(ownerId, fullPath) as FileNode;
-            if (!file.IsImage)
-            {
-                throw new Exception("不是图片文件,无法制作缩略图");
-            }
+            var file = _nodeAppService.GetNode<FileNode>(ownerId, fullPath);
+            if (!file.IsImage) throw new Exception("不是图片文件,无法制作缩略图");
 
             //GetAppId会找到原始文件上传时的appid,将生成的缩略图算在该app上
             //但考虑性能问题,把appid设为固定的一个id,即所有生成的缩略图都算在该app上
             //var thumbOwnerId = nodeService.GetAppId(file.Id);
 
-            var thumbPath = String.Format("/Thumb/{0}", file.Id);
-            var thumbName = String.Format("{0}x{1}", width, height);
-            var thumb = _nodeAppService.GetNode<FileNode>(ThumbOwnerId, thumbPath, thumbName) as FileNode;
-            if (thumb != null)
-                return thumb;
-            else
-            {
-                var imageStream = ImageUtil.Thumbnail(_storageClient.GetFileStream(file.StorageFileId).Stream, width, height, contentType);
-                var storageFile = _storageClient.Upload(imageStream);
-                var fileNode = _nodeAppService.CreateFileNode(ThumbOwnerId, thumbPath, thumbName, storageFile.Size, storageFile.Id);
-                //var quotaService = new QuotaService(appId: ThumbOwnerId);
-                _quotaAppService.Increase(ThumbOwnerId, storageFile.Size, fileNode.Id);
-                return fileNode;
-            }
+            var thumbPath = string.Format("/Thumb/{0}", file.Id);
+            var thumbName = string.Format("{0}x{1}", width, height);
+            var thumb = _nodeAppService.GetNode<FileNode>(ThumbOwnerId, thumbPath, thumbName);
+            if (thumb != null) return thumb;
+
+            var imageStream = ImageUtil.Thumbnail(_storageClient.GetFileStream(file.StorageFileId).Stream, width,
+                height, contentType);
+            var storageFile = _storageClient.Upload(imageStream);
+            var fileNode =
+                _nodeAppService.CreateFileNode(ThumbOwnerId, thumbPath, thumbName, storageFile.Size, storageFile.Id);
+            //var quotaService = new QuotaService(appId: ThumbOwnerId);
+            _quotaAppService.Increase(ThumbOwnerId, storageFile.Size, fileNode.Id);
+            return fileNode;
         }
 
+        /// <summary>
+        /// 上传文件
+        /// </summary>
+        /// <param name="ownerId"></param>
+        /// <param name="path"></param>
+        /// <param name="name"></param>
+        /// <param name="md5"></param>
+        /// <param name="overwritten"></param>
+        /// <param name="tags"></param>
+        /// <returns></returns>
         private async Task<FileNode> DoUpload(string ownerId,
-                                                                            string path,
-                                                                            string name,
-                                                                            string md5,
-                                                                            string overwritten,
-                                                                            string tags = null)
+            string path,
+            string name,
+            string md5,
+            string overwritten,
+            string tags = null)
         {
             FileData storageFileByMd5 = null;
             long size = 0;
             HttpPostedFileBase file = null;
-            if (!string.IsNullOrEmpty(md5))//根据md5直接获取storage file
+            if (!string.IsNullOrEmpty(md5)) //根据md5直接获取storage file
             {
                 try
                 {
@@ -489,33 +509,26 @@ namespace DFramework.Pan.Web.Controllers
                 }
                 catch (Exception e)
                 {
-                    throw new SysException(Infrastructure.ErrorCode.FileMd5NotFound);
+                    throw new SysException(ErrorCode.FileMd5NotFound);
                 }
             }
             else //根据Request.File获取file
             {
                 if (Request.Files.Count != 1)
-                {
-                    throw new SysException(Infrastructure.ErrorCode.OnlyOneFileAllowed, "只能上传一个文件." + Request.Files.Count);
-                }
+                    throw new SysException(ErrorCode.OnlyOneFileAllowed, "只能上传一个文件." + Request.Files.Count);
 
                 file = Request.Files[0];
                 size = file.ContentLength;
             }
 
-            FileNode fileToOverwrite = (path == null ? null : _nodeAppService.GetNode<FileNode>(ownerId, path, name));
-            var isModify = fileToOverwrite != null && overwritten == Boolean.TrueString;
+            var fileToOverwrite = path == null ? null : _nodeAppService.GetNode<FileNode>(ownerId, path, name);
+            var isModify = fileToOverwrite != null && overwritten == bool.TrueString;
 
             //检查配额，及检查文件是否存在，放在这里做可以让Upload/Modify调storageClient.Upload的时序一致
-            long sizeToChange = size;
+            var sizeToChange = size;
             if (isModify)
-            {
                 sizeToChange -= fileToOverwrite.Size;
-            }
-            else if (fileToOverwrite != null)
-            {
-                throw new Exception("文件已存在.");
-            }
+            else if (fileToOverwrite != null) throw new Exception("文件已存在.");
 
             _quotaAppService.CheckQuota(ownerId, sizeToChange);
 
@@ -548,39 +561,29 @@ namespace DFramework.Pan.Web.Controllers
             FileController._cacheManager.Remove(node.OwnerId + node.FullPath);
             //包括缩略图的缓存，有w和h后缀
             var folderNodes = _nodeAppService.GetNode<FolderNode>(ThumbOwnerId, $"/Thumb/{node.Id}")?.Files;
-            if (folderNodes!=null)
-            {
+            if (folderNodes != null)
                 foreach (var folderNode in folderNodes)
-                {
                     FileController._cacheManager.Remove(node.OwnerId + node.FullPath + "/" + folderNode.Name);
-                }
-            }
 
             //删除原有缩略图
-            if (node.IsImage)
-            {
-                DeleteFolder(ThumbOwnerId, "/Thumb", node.Id);
-            }
+            if (node.IsImage) DeleteFolder(ThumbOwnerId, "/Thumb", node.Id);
         }
 
         public async Task<JsonResult> CreateNodeZip(string nodeIds, string appId, string path)
         {
             var result = await ExceptionManager.Process(async () =>
             {
-                if (string.IsNullOrEmpty(nodeIds))
-                {
-                    throw new Exception("错误的NodeIds");
-                }
+                if (string.IsNullOrEmpty(nodeIds)) throw new Exception("错误的NodeIds");
 
-                string[] idLists = nodeIds.Split('/');
+                var idLists = nodeIds.Split('/');
                 FileNode zipFile = null;
-                List<Domain.Node> nodeList = _nodeAppService.GetNodeList<Domain.Node>(nodeIds);
+                var nodeList = _nodeAppService.GetNodeList<Node>(nodeIds);
                 if (nodeList.Count > 0)
                 {
                     var keyIds = GetZipKey(nodeList);
                     keyIds.Sort();
 
-                    string zipKeys = Newtonsoft.Json.JsonConvert.SerializeObject(keyIds);
+                    var zipKeys = JsonConvert.SerializeObject(keyIds);
                     var zipLog = _zipAppService.GetSameKeyZip(zipKeys);
                     if (zipLog != null && !string.IsNullOrEmpty(zipLog.NodeId))
                     {
@@ -589,16 +592,14 @@ namespace DFramework.Pan.Web.Controllers
                     else
                     {
                         var zipId = Guid.NewGuid().ToString().ToLower();
-                        using (MemoryStream stream = new MemoryStream())
+                        using (var stream = new MemoryStream())
                         {
                             #region 构建压缩包
 
                             using (var zipArchive = CreateZipArchive(stream, ZipArchiveMode.Update))
                             {
                                 foreach (var node in nodeList)
-                                {
                                     if (node is FileNode)
-                                    {
                                         try
                                         {
                                             var fileNode = node as FileNode;
@@ -611,13 +612,9 @@ namespace DFramework.Pan.Web.Controllers
                                             Console.WriteLine(e);
                                             throw;
                                         }
-                                    }
                                     else if (node is FolderNode)
-                                    {
                                         await CreateFolder(node.Name, node.OwnerId, node.Path + node.Name + "/",
                                             zipArchive, null, true);
-                                    }
-                                }
                             }
 
                             #endregion 构建压缩包
@@ -625,14 +622,14 @@ namespace DFramework.Pan.Web.Controllers
                             stream.Seek(0, SeekOrigin.Begin);
                             var md5 = stream.GetFileMD5();
                             await _storageClient.UploadAsync(stream);
-                            zipFile = await DoUpload(appId, path, zipId + ".zip", md5, Boolean.FalseString);
+                            zipFile = await DoUpload(appId, path, zipId + ".zip", md5, bool.FalseString);
                         }
 
                         _zipAppService.AddZipLog(zipId, zipKeys, zipFile.Id, idLists);
                     }
                 }
 
-                var zipFileModel = PrepareResult(AutoMapper.Mapper.Map<FileModel>(zipFile));
+                var zipFileModel = PrepareResult(Mapper.Map<FileModel>(zipFile));
                 return zipFileModel;
             });
             return Json(result);
@@ -643,21 +640,18 @@ namespace DFramework.Pan.Web.Controllers
         {
             ZipArchiveEntry zipFileFolder;
             if (isArchive)
-            {
                 zipFileFolder = CreateFolder(zipArchive, folderName);
-            }
             else
-            {
                 zipFileFolder = CreateFolder(zipArchiveEntry, folderName);
-            }
 
             //var folderContents = nodeService.GetNode<FolderNode>(node.OwnerId, node.Path);
-            var folderContent = PrepareResult(Mapper.Map<FolderModel>(new Func<String, String, Domain.Node>(_nodeAppService.GetNode<FolderNode>).DynamicInvoke(folderOwnerId, folderPath)));
+            var folderContent = PrepareResult(Mapper.Map<FolderModel>(
+                new Func<string, string, Node>(_nodeAppService.GetNode<FolderNode>).DynamicInvoke(folderOwnerId,
+                    folderPath)));
             if (folderContent.Files.Count() > 0)
-            {
                 foreach (var file in folderContent.Files.ToList())
                 {
-                    HttpClient client = new HttpClient();
+                    var client = new HttpClient();
 
                     try
                     {
@@ -672,14 +666,11 @@ namespace DFramework.Pan.Web.Controllers
 
                     //fileStream.Seek(0, SeekOrigin.Begin);
                 }
-            }
+
             if (folderContent.SubFolders.Count() > 0)
-            {
                 foreach (var folder in folderContent.SubFolders.ToList())
-                {
-                    await CreateFolder(folder.Name, folder.OwnerId, folder.Path + folder.Name + "/", zipArchive, zipFileFolder, false);
-                }
-            }
+                    await CreateFolder(folder.Name, folder.OwnerId, folder.Path + folder.Name + "/", zipArchive,
+                        zipFileFolder, false);
         }
 
         private static ZipArchive CreateZipArchive(Stream stream, ZipArchiveMode model)
@@ -689,25 +680,20 @@ namespace DFramework.Pan.Web.Controllers
 
         private static ZipArchiveEntry CreateFolder(ZipArchive zipArchive, string folder)
         {
-            if (folder.Last() != '/' || folder.Last() != '\\')
-            {
-                folder = folder + "/";
-            }
+            if (folder.Last() != '/' || folder.Last() != '\\') folder = folder + "/";
             return zipArchive.CreateEntry(folder, CompressionLevel.Optimal);
         }
 
         private static ZipArchiveEntry CreateFolder(ZipArchiveEntry zipArchiveEntry, string folder)
         {
-            if (folder.Last() != '/' || folder.Last() != '\\')
-            {
-                folder = folder + "/";
-            }
-            return zipArchiveEntry.Archive.CreateEntry(Path.Combine(zipArchiveEntry.FullName, folder), CompressionLevel.Optimal);
+            if (folder.Last() != '/' || folder.Last() != '\\') folder = folder + "/";
+            return zipArchiveEntry.Archive.CreateEntry(Path.Combine(zipArchiveEntry.FullName, folder),
+                CompressionLevel.Optimal);
         }
 
         private static async Task CreateFile(ZipArchive zipArchive, string fileName, Stream stream)
         {
-            ZipArchiveEntry fileEntry = zipArchive.CreateEntry(fileName);
+            var fileEntry = zipArchive.CreateEntry(fileName);
             using (var entryStream = fileEntry.Open())
             {
                 await stream.CopyToAsync(entryStream);
@@ -723,7 +709,7 @@ namespace DFramework.Pan.Web.Controllers
             }
         }
 
-        private List<string> GetZipKey(List<Domain.Node> nodeList)
+        private List<string> GetZipKey(List<Node> nodeList)
         {
             var nodeIds = new List<string>();
             nodeList.ForEach(node =>
@@ -735,7 +721,7 @@ namespace DFramework.Pan.Web.Controllers
                     if (folderNode.Children.Any())
                     {
                         var childrenNodeList =
-                            _nodeAppService.GetNodeList<Domain.Node>(string.Join("/",
+                            _nodeAppService.GetNodeList<Node>(string.Join("/",
                                 folderNode.Children.Select(c => c.Id).ToArray()));
                         var childrenNodeIds = GetZipKey(childrenNodeList);
                         nodeIds.AddRange(childrenNodeIds);
@@ -746,9 +732,9 @@ namespace DFramework.Pan.Web.Controllers
             return nodeIds;
         }
 
-        private void DoDeleteFolder(String ownerId, String path, String name)
+        private void DoDeleteFolder(string ownerId, string path, string name)
         {
-            var folder = _nodeAppService.GetNode<FolderNode>(ownerId, path, name) as FolderNode;
+            var folder = _nodeAppService.GetNode<FolderNode>(ownerId, path, name);
             //匿名函数的递归(奇葩)
             Func<Action<FolderNode>, Action<FolderNode>> g = x => x = f =>
             {
@@ -763,7 +749,7 @@ namespace DFramework.Pan.Web.Controllers
                     //清理缓存
                     FileNodeChanged(file);
                 });
-                f.SubFolders.ForEach(subFolder => x(_nodeAppService.GetNode<FolderNode>(ownerId, subFolder.FullPath) as FolderNode));
+                f.SubFolders.ForEach(subFolder => x(_nodeAppService.GetNode<FolderNode>(ownerId, subFolder.FullPath)));
             };
             g(null)(folder);
         }
@@ -774,11 +760,11 @@ namespace DFramework.Pan.Web.Controllers
             {
                 var nodelist = _nodeAppService.GetNodeList(nodeIds, ownId);
 
-                List<NodeModel> nodeModels = new List<NodeModel>();
+                var nodeModels = new List<NodeModel>();
 
                 foreach (var item in nodelist)
                 {
-                    NodeModel nodeModel = new NodeModel
+                    var nodeModel = new NodeModel
                     {
                         Id = item.Id,
                         OwnerId = item.OwnerId,
@@ -800,39 +786,26 @@ namespace DFramework.Pan.Web.Controllers
         {
             var result = ExceptionManager.Process(() =>
             {
-                if (string.IsNullOrEmpty(nodeIds))
-                {
-                    throw new Exception("错误的NodeIds");
-                }
+                if (string.IsNullOrEmpty(nodeIds)) throw new Exception("错误的NodeIds");
 
-                string[] idLists = nodeIds.Split('/');
+                var idLists = nodeIds.Split('/');
 
-                var nodelist = _nodeAppService.GetNodeList<Domain.Node>(nodeIds);
+                var nodelist = _nodeAppService.GetNodeList<Node>(nodeIds);
 
-                VirtualFolderModel folder = new VirtualFolderModel();
+                var folder = new VirtualFolderModel();
 
-                List<FileModel> subFiles = new List<FileModel>();
-                List<FolderModel> subFolders = new List<FolderModel>();
+                var subFiles = new List<FileModel>();
+                var subFolders = new List<FolderModel>();
 
                 foreach (var item in nodelist)
-                {
                     if (item is FileNode)
-                    {
                         subFiles.Add(PrepareResult(Mapper.Map<FileModel>(item)));
-                    }
-                    else if (item is FolderNode)
-                    {
-                        subFolders.Add(PrepareResult(Mapper.Map<FolderModel>(item)));
-                    }
-                }
+                    else if (item is FolderNode) subFolders.Add(PrepareResult(Mapper.Map<FolderModel>(item)));
 
                 folder.Files = subFiles;
                 folder.SubFolders = subFolders;
 
-                if (subFiles.Count == 0 && subFolders.Count == 0)
-                {
-                    folder.IsEmpty = true;
-                }
+                if (subFiles.Count == 0 && subFolders.Count == 0) folder.IsEmpty = true;
 
                 return folder;
             });
@@ -843,7 +816,7 @@ namespace DFramework.Pan.Web.Controllers
         {
             var result = ExceptionManager.Process(() =>
             {
-                NodeModel nodeModel = new NodeModel();
+                var nodeModel = new NodeModel();
 
                 var node = _nodeAppService.GetNode(nodeId);
 
@@ -855,13 +828,8 @@ namespace DFramework.Pan.Web.Controllers
                     nodeModel.Path = node.Path;
                     //nodeModel.CreationTime = node.CreationTime.ToString("yyyy-MM-dd HH:mm");
                     if (node is FileNode)
-                    {
                         nodeModel.Type = "File";
-                    }
-                    else if (node is FolderNode)
-                    {
-                        nodeModel.Type = "Folder";
-                    }
+                    else if (node is FolderNode) nodeModel.Type = "Folder";
                 }
 
                 return nodeModel;

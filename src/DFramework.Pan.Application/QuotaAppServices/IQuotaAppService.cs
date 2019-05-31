@@ -11,6 +11,11 @@ namespace DFramework.Pan.QuotaAppServices
 
         Quota GetQuota(string ownerId);
 
+        /// <summary>
+        /// 检查配额
+        /// </summary>
+        /// <param name="ownerId"></param>
+        /// <param name="sizeToIncrease"></param>
         void CheckQuota(string ownerId, long sizeToIncrease);
 
         Quota Increase(string ownerId, long size, string fileId);
